@@ -26,6 +26,8 @@ body{
 }
 .wrapper {
   width: 380px;
+  overflow: hidden;
+  position:relative;
   border-radius: 15px;
   padding: 25px 30px;
   background: var(--white);
@@ -34,7 +36,7 @@ body{
 .wrapper i{
   cursor: pointer
 }
-.top-bar,.progress-area .timer, .controls {
+.top-bar,.progress-area .timer, .controls, .music-list .header, .music-list li {
   display:flex;
   align-items: center;
   justify-content:space-between
@@ -163,6 +165,58 @@ margin-right: -13px;
   position: relative;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.music-list {
+position: relative;
+left: 0;
+bottom: -55%;
+/* opacity: 0; */
+/* pointer-events: none; */
+background: var(--white);
+margin-top: 10px;
+width: 100%;
+padding: 15px;
+border-radius: 15px;
+box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+}
+.music-list.show{
+  bottom: 0;
+  opacity: 1;
+  pointer-events: auto;
+}
+.music-list .header .row{
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  color: var(--lightblack);
+}
+.header .row i{
+  cursor: default;
+}
+.header #close {
+  font-size: 22px;
+color: var(--lightblack)
+}
+.music-list ul{
+  margin: 10px 0;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.music-list ul::-webkit-scrollbar{
+  width: 10px;
 
-
+}
+.music-list ul li {
+  cursor: pointer;
+  list-style: none;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  color: var(--lightblack);
+  border-bottom: 1px solid #e5e5e5;
+}
+.music-list ul li:last-child{
+  border-bottom: 0px;
+}
+.music-list ul li .row span {
+  font-size: 17px;
 }
